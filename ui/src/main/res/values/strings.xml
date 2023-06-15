@@ -1,4 +1,7 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_item_menu">Меню</string>
+    <string name="nav_item_profile">Профиль</string>
+    <string name="nav_item_basket">Корзина</string>
 </resources>
