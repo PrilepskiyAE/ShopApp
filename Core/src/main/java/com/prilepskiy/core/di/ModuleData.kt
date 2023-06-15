@@ -1,9 +1,13 @@
 package com.prilepskiy.core.di
 
+import android.app.Application
+import androidx.room.Room
 import com.prilepskiy.core.data.apiService.CategoryApiService
 import com.prilepskiy.core.data.apiService.ProductApiService
+import com.prilepskiy.core.data.databaseService.database.MainDatabase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -34,4 +38,18 @@ val apiModule = module {
 }
 val repositoryModule = module {
 }
-val databaseModule = module {}
+val databaseModule = module {
+    fun provideMainDataBase(application: Application): MainDatabase {
+        return Room.databaseBuilder(
+            application,
+            MainDatabase::class.java,
+            "MainDB"
+        ).allowMainThreadQueries()
+            .build()
+    }
+
+
+
+    single { provideMainDataBase(androidApplication()) }
+    //single { get<MainDatabase>().categoryDao }
+}
