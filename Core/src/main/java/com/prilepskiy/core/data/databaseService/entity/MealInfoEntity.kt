@@ -2,6 +2,7 @@ package com.prilepskiy.core.data.databaseService.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.prilepskiy.core.data.apiService.response.productResponse.MealInfoResponse
 
 @Entity(tableName = "meal_info_table")
 data class MealInfoEntity(
@@ -10,7 +11,7 @@ data class MealInfoEntity(
     val idMeal: Int,
     val strArea: String,
     val strCategory: String,
-    val strCreativeCommonsConfirmed:String,
+    val strCreativeCommonsConfirmed: String,
     val strDrinkAlternate: String,
     val strImageSource: String,
     val strIngredient1: String,
@@ -59,4 +60,64 @@ data class MealInfoEntity(
     val strSource: String,
     val strTags: String,
     val strYoutube: String
-)
+) {
+    companion object {
+        fun from(data: MealInfoResponse): MealInfoEntity = with(data) {
+            MealInfoEntity(
+                dateModified,
+                idMeal,
+                strArea,
+                strCategory,
+                strCreativeCommonsConfirmed,
+                strDrinkAlternate,
+                strImageSource,
+                strIngredient1,
+                strIngredient10,
+                strIngredient11,
+                strIngredient12,
+                strIngredient13,
+                strIngredient14,
+                strIngredient15,
+                strIngredient16,
+                strIngredient17,
+                strIngredient18,
+                strIngredient19,
+                strIngredient2,
+                strIngredient20,
+                strIngredient3,
+                strIngredient4,
+                strIngredient5,
+                strIngredient6,
+                strIngredient7,
+                strIngredient8,
+                strIngredient9,
+                strInstructions,
+                strMeal,
+                strMealThumb,
+                strMeasure1,
+                strMeasure10,
+                strMeasure11,
+                strMeasure12,
+                strMeasure13,
+                strMeasure14,
+                strMeasure15,
+                strMeasure16,
+                strMeasure17,
+                strMeasure18,
+                strMeasure19,
+                strMeasure2,
+                strMeasure20,
+                strMeasure3,
+                strMeasure4,
+                strMeasure5,
+                strMeasure6,
+                strMeasure7,
+                strMeasure8,
+                strMeasure9,
+                strSource,
+                strTags,
+                strYoutube
+            )
+        }
+    }
+}
