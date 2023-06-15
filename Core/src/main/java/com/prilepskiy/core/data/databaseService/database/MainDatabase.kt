@@ -3,6 +3,8 @@ package com.prilepskiy.core.data.databaseService.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.prilepskiy.core.data.databaseService.dao.CategoryDao
+import com.prilepskiy.core.data.databaseService.dao.MealDao
+import com.prilepskiy.core.data.databaseService.dao.MealInfoDao
 import com.prilepskiy.core.data.databaseService.entity.CategoryEntity
 import com.prilepskiy.core.data.databaseService.entity.MealEntity
 import com.prilepskiy.core.data.databaseService.entity.MealInfoEntity
@@ -14,4 +16,7 @@ import com.prilepskiy.core.data.databaseService.entity.MealInfoEntity
 
 abstract class MainDatabase: RoomDatabase() {
     abstract val categoryDao: CategoryDao
+    abstract val mealDao: MealDao
+    abstract val mealInfoDao: MealInfoDao
+
 }
