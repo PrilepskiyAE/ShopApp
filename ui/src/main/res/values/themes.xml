@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavigation">
+        <item name="itemIconTint">@color/bottom_navigation_menu</item>
+        <item name="itemTextColor">@color/bottom_navigation_menu_text</item>
+        <item name="background">@color/grey_3</item>
+        <item name="backgroundColor">@color/grey_3</item>
+
+    </style>
+</resources>

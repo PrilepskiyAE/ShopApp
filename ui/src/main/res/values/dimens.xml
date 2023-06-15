@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mf_border_size_10dp">10dp</dimen>
+    <dimen name="padding_navigation_item_5dp">5dp</dimen>
+    <dimen name="size_nav_height_56dp">56dp</dimen>
+</resources>
