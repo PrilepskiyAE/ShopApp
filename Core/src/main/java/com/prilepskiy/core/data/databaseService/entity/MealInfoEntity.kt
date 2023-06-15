@@ -5,14 +5,14 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "meal_info_table")
 data class MealInfoEntity(
-    val dateModified: Any,
+    val dateModified: String,
     @PrimaryKey(autoGenerate = true)
     val idMeal: Int,
     val strArea: String,
     val strCategory: String,
-    val strCreativeCommonsConfirmed: Any,
-    val strDrinkAlternate: Any,
-    val strImageSource: Any,
+    val strCreativeCommonsConfirmed:String,
+    val strDrinkAlternate: String,
+    val strImageSource: String,
     val strIngredient1: String,
     val strIngredient10: String,
     val strIngredient11: String,

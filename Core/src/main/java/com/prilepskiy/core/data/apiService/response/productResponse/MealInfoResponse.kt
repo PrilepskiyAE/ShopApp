@@ -1,13 +1,13 @@
 package com.prilepskiy.core.data.apiService.response.productResponse
 
 data class MealInfoResponse(
-    val dateModified: Any,
+    val dateModified: String,
     val idMeal: String,
     val strArea: String,
     val strCategory: String,
-    val strCreativeCommonsConfirmed: Any,
-    val strDrinkAlternate: Any,
-    val strImageSource: Any,
+    val strCreativeCommonsConfirmed: String,
+    val strDrinkAlternate: String,
+    val strImageSource: String,
     val strIngredient1: String,
     val strIngredient10: String,
     val strIngredient11: String,
