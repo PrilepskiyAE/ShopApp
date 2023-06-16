@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/ToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Москва"
+        android:textColor="#222831"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ToolbarTitle"
+        app:layout_constraintStart_toEndOf="@+id/ToolbarTitle"
+        app:layout_constraintTop_toTopOf="@+id/ToolbarTitle"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/keyboard_arrow_down" />
+
+    <ImageView
+        android:id="@+id/btQcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ToolbarTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ToolbarTitle"
+        app:srcCompat="@drawable/qr_code" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.prilepskiy.core.domain.usecase
 
+import android.util.Log
 import com.prilepskiy.core.domain.interactors.GetCategoryCashUseCase
 import com.prilepskiy.core.domain.model.CategoryModel
 import com.prilepskiy.core.domain.repository.CategoryRepository
@@ -14,7 +15,8 @@ class GetCategoryCashUseCaseImpl(private val repository: CategoryRepository) :
         repository.getCategoryCash().map { list ->
             val result: MutableList<CategoryModel> = mutableListOf()
             list.forEach { item ->
-                CategoryModel.from(item)
+                Log.d("TAG99", "invoke:${item} ")
+               result.add( CategoryModel.from(item))
             }
             result
         }

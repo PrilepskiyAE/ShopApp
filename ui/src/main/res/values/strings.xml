@@ -4,4 +4,8 @@
     <string name="nav_item_menu">Меню</string>
     <string name="nav_item_profile">Профиль</string>
     <string name="nav_item_basket">Корзина</string>
+    <string name="price">от 345 р</string>
+    <string name="bottom_ok">ОК</string>
+    <!-- TODO: Данные сложно добыть нужно дергать другую апи -->
+    <string name="texLabel">Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус</string>
 </resources>
