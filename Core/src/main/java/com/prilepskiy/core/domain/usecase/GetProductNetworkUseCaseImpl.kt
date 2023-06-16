@@ -5,33 +5,40 @@ import com.prilepskiy.core.domain.model.CategoryModel
 import com.prilepskiy.core.domain.model.MealModel
 import com.prilepskiy.core.domain.repository.ProductRepository
 import com.prilepskiy.core.utils.ActionResult
+import com.prilepskiy.core.utils.data
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class GetProductNetworkUseCaseImpl(
     private val repository: ProductRepository
-    ) :
+) :
     GetProductNetworkUseCase {
     override suspend operator fun invoke(categoryName: String): ActionResult<List<MealModel>> =
         withContext(
             Dispatchers.IO
         )
         {
-            //val apiData = repository.getProductNetwork(categoryName)
+            val apiData = repository.getProductNetwork(categoryName)
+            val result = mutableListOf<MealModel>()
+            return@withContext when (apiData) {
+                is ActionResult.Success -> {
+                    apiData.data.meals
+                        .onEach { meal ->
 
-          val result = mutableListOf<MealModel>()
-//            return@withContext when (apiData) {
-//                is ActionResult.Success -> {
-//                    apiData.data.meals
-//                        .onEach {
-//                        result.add(MealModel.from(it,categoryName))
-//                    }
-                   ActionResult.Success(result)
-//                }
-//
-//                is ActionResult.Error -> {
-//                    ActionResult.Error(apiData.errors)
-//                }
-//            }
+                                    result.add(
+                                        MealModel.from(
+                                            meal,
+                                            categoryName,
+                                        )
+                                    )
+
+                        }
+                    ActionResult.Success(result)
+                }
+
+                is ActionResult.Error -> {
+                    ActionResult.Error(apiData.errors)
+                }
+            }
         }
 }

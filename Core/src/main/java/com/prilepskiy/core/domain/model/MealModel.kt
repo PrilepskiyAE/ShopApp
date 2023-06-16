@@ -10,13 +10,27 @@ data class MealModel(
     val strMeal: String,
     val strMealThumb: String,
     val categoryMeal: String,
-){
-    companion object{
-        fun from(data: MealResponse,categoryMeal: String):MealModel =  with(data){
-            MealModel(idMeal,strMeal,strMealThumb,categoryMeal)
+
+) {
+    companion object {
+        fun from(
+            data: MealResponse, categoryMeal: String
+
+        ): MealModel = with(data) {
+            MealModel(
+                idMeal,
+                strMeal,
+                strMealThumb,
+                categoryMeal)
         }
-        fun from(data: MealEntity):MealModel =  with(data){
-            MealModel(idMeal,strMeal,strMealThumb,categoryMeal)
+
+        fun from(data: MealEntity): MealModel = with(data) {
+            MealModel(
+                idMeal,
+                strMeal,
+                strMealThumb,
+                categoryMeal,
+            )
         }
     }
 }

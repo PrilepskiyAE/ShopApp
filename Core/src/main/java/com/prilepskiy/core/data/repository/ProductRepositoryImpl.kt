@@ -10,23 +10,28 @@ import com.prilepskiy.core.data.databaseService.entity.MealInfoEntity
 import com.prilepskiy.core.domain.repository.ProductRepository
 import com.prilepskiy.core.utils.ActionResult
 import com.prilepskiy.core.utils.analyzeResponse
+import com.prilepskiy.core.utils.data
 import com.prilepskiy.core.utils.makeApiCall
 import kotlinx.coroutines.flow.Flow
 
 class ProductRepositoryImpl(
     private val api: ProductApiService,
     private val db: MainDatabase
-    ) :
+) :
     ProductRepository {
-        override suspend fun getProductNetwork(categoryName: String): ActionResult<ProductResponse> {
+    override suspend fun getProductNetwork(categoryName: String): ActionResult<ProductResponse> {
         val apiData = makeApiCall {
             analyzeResponse(api.getProductInfoByCategory(categoryName))
         }
         return when (apiData) {
             is ActionResult.Success -> {
 
-                apiData.data.meals.onEach {
-                    db.mealDao.insert(MealEntity.from(it, categoryName))
+                apiData.data.meals.onEach { meal ->
+                            db.mealDao.insert(
+                                MealEntity.from(
+                                    meal,
+                                    categoryName))
+
                 }
                 ActionResult.Success(apiData.data)
             }

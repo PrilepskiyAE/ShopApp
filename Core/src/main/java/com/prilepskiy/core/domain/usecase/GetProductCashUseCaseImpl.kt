@@ -15,7 +15,7 @@ class GetProductCashUseCaseImpl(private val repository: ProductRepository) : Get
             repository.getProductCash(categoryName).map { list ->
                 val result: MutableList<MealModel> = mutableListOf()
                 list.forEach { item ->
-                    MealModel.from(item)
+                   result.add( MealModel.from(item))
                 }
                 result
             }
