@@ -13,7 +13,11 @@ data class CategoryModel(
 ) {
     companion object {
         fun from(data: CategoryResponse): CategoryModel = with(data) {
-            CategoryModel(idCategory, strCategory, strCategoryThumb)
+            if (data.strCategory=="Beef")
+            CategoryModel(idCategory, strCategory, strCategoryThumb,isActive = true)
+            else{
+                CategoryModel(idCategory, strCategory, strCategoryThumb)
+            }
         }
 
         fun from(data: CategoryEntity): CategoryModel = with(data) {

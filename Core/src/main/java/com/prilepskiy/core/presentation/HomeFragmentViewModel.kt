@@ -69,7 +69,7 @@ class HomeFragmentViewModel(
 
     fun getMeat(categoryName:String){
         viewModelScope.launch {
-val securety:Boolean=true
+
             when (val result = getProductNetworkUseCase(categoryName)){
 
                 is ActionResult.Success -> {
