@@ -7,7 +7,15 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel { HomeFragmentViewModel() }
+    viewModel { HomeFragmentViewModel(
+        get(),
+        get(),
+        get(),
+        get(),
+        get(),
+        get()
+    )
+    }
     viewModel { ShoppingBasketFragmentViewModel() }
     viewModel { ProfileFragmentViewModel() }
 }

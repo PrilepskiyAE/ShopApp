@@ -9,6 +9,7 @@ import com.prilepskiy.core.data.repository.CategoryRepositoryImpl
 import com.prilepskiy.core.data.repository.ProductRepositoryImpl
 import com.prilepskiy.core.domain.repository.CategoryRepository
 import com.prilepskiy.core.domain.repository.ProductRepository
+
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
@@ -26,6 +27,7 @@ val apiModule = module {
             .apply {
                 client(
                     OkHttpClient.Builder()
+
                         .addInterceptor(HttpLoggingInterceptor().apply {
                             level = HttpLoggingInterceptor.Level.BODY
                         })
@@ -37,12 +39,14 @@ val apiModule = module {
             }
             .build()
     }
-    single<ProductApiService> { retrofitService("www.themealdb.com/api/json/v1/1/").create(ProductApiService::class.java) }
-    single<CategoryApiService> { retrofitService("www.themealdb.com/api/json/v1/1/").create(CategoryApiService::class.java) }
+    single<ProductApiService> { retrofitService("https://www.themealdb.com/").create(ProductApiService::class.java) }
+    single<CategoryApiService> { retrofitService("https://www.themealdb.com/").create(CategoryApiService::class.java) }
 }
+
 val repositoryModule = module {
     single<CategoryRepository> { CategoryRepositoryImpl(get(), get()) }
-    single<ProductRepository> { ProductRepositoryImpl(get(), get()) }
+    single<ProductRepository> { ProductRepositoryImpl(get(), get()
+    ) }
 }
 val databaseModule = module {
     fun provideMainDataBase(application: Application): MainDatabase {
@@ -57,5 +61,8 @@ val databaseModule = module {
 
 
     single { provideMainDataBase(androidApplication()) }
-    //single { get<MainDatabase>().categoryDao }
+    single { get<MainDatabase>().categoryDao }
+    single { get<MainDatabase>().mealDao }
+    single { get<MainDatabase>().mealInfoDao }
+
 }

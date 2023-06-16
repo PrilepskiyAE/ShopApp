@@ -1,5 +1,8 @@
 package com.prilepskiy.core.utils
 
+import android.util.Log
+import okhttp3.Interceptor
+import okhttp3.Request
 import retrofit2.Response
 
 sealed class ActionResult<out S> {
@@ -35,3 +38,9 @@ data class CallException(
     val errorCode: Int,
     val errorMessage: String? = null,
 ) : Exception()
+
+{
+    companion object{
+        const val TAG ="HeaderInterceptor"
+    }
+}
