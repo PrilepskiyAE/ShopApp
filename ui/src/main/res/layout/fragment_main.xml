@@ -30,10 +30,10 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         style="@style/BottomNavigation"
-        android:background="@color/grey_3"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/size_nav_height_56dp"
         android:alpha="1"
+        android:background="@color/grey_3"
         android:outlineAmbientShadowColor="@android:color/transparent"
         android:outlineSpotShadowColor="@android:color/transparent"
         app:elevation="0dp"

@@ -8,4 +8,5 @@
     <string name="bottom_ok">ОК</string>
     <!-- TODO: Данные сложно добыть нужно дергать другую апи -->
     <string name="texLabel">Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус</string>
+    <string name="citi_name">Москва</string>
 </resources>

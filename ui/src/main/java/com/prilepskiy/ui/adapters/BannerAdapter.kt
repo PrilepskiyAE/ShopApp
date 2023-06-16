@@ -17,15 +17,14 @@ class BannerAdapter() : ListAdapter<String, BannerAdapter.BannerHolder>(Comporat
 
     inner class BannerHolder(
         view: View,
-    ) : RecyclerView.ViewHolder(view)
-    {
+    ) : RecyclerView.ViewHolder(view) {
         private val binding = ItemBannerBinding.bind(view)
-        fun bind(data: String)  {
+        fun bind(data: String) {
 
-            with(binding){
-               Glide.with(itemView)
-                   .load(data)
-                   .into(imLogo)
+            with(binding) {
+                Glide.with(itemView)
+                    .load(data)
+                    .into(imLogo)
 
             }
         }
@@ -34,21 +33,20 @@ class BannerAdapter() : ListAdapter<String, BannerAdapter.BannerHolder>(Comporat
     }
 
 
-
-    class ComporatorBanners : DiffUtil.ItemCallback<String>(){
+    class ComporatorBanners : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem.length==newItem.length
+            return oldItem.length == newItem.length
         }
 
         override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerHolder {
 
-        val view=   LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
 
         return BannerHolder(view)
     }
@@ -57,7 +55,6 @@ class BannerAdapter() : ListAdapter<String, BannerAdapter.BannerHolder>(Comporat
         holder.bind(getItem(position))
 
     }
-
 
 
 }

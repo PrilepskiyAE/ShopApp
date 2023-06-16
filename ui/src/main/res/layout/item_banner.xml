@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="112dp"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="8dp">
+    android:layout_width="@dimen/_300dp"
+    android:layout_height="@dimen/_112dp"
+    app:cardCornerRadius="@dimen/_10dp"
+    android:layout_margin="@dimen/_8dp">
 
     <ImageView
         android:id="@+id/imLogo"

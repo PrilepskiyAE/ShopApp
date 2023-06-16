@@ -9,7 +9,7 @@ import com.prilepskiy.core.presentation.ProfileFragmentViewModel
 import com.prilepskiy.ui.databinding.FragmentProfileBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProfileFragment :  BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
     val viewModel: ProfileFragmentViewModel by viewModel()
 
 }

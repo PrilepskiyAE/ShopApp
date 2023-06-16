@@ -35,27 +35,26 @@ class MainFragment : Fragment() {
     }
 
     private fun onBottomNavClicks() {
-        binding.bottomNav.labelVisibilityMode= NavigationBarView.LABEL_VISIBILITY_LABELED
-        binding.bottomNav.setOnItemSelectedListener {menuItem->
-            when(menuItem.itemId){
-                R.id.homeFragment->{
-                    Log.d(TAG, "onBottomNavClicks:${menuItem.itemId} ")
+        binding.bottomNav.labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_LABELED
+        binding.bottomNav.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeFragment -> {
                     navController.popBackStack(R.id.homeFragment, false, saveState = true)
                 }
-                R.id.profileFragment->{
-                    Log.d(TAG, "onBottomNavClicks:${menuItem.itemId} ")
+
+                R.id.profileFragment -> {
                     navController.navigate(R.id.profileFragment, null)
                 }
-                R.id.shoppingBasketFragment->{
-                    Log.d(TAG, "onBottomNavClicks:${menuItem.itemId} ")
-                    // openFragment(ShoppingBasketFragment.newInstance())
+
+                R.id.shoppingBasketFragment -> {
                     navController.navigate(R.id.shoppingBasketFragment, null)
                 }
             }
             true
         }
     }
-    companion object{
-        const val TAG="MainFragment"
+
+    companion object {
+        const val TAG = "MainFragment"
     }
 }

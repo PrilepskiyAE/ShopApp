@@ -14,23 +14,23 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     val viewModel: HomeFragmentViewModel by viewModel()
-    val categoryAdapter=CategoryAdapter {
+    val categoryAdapter = CategoryAdapter {
         viewModel.getMeat(it.strCategory)
         viewModel.categoryModel.value?.let { it1 -> viewModel.activatioTeg(it, it1) }
 
     }
-    val bannerAdapter=BannerAdapter()
-    val mealAdapter= MealAdapter {}
+    val bannerAdapter = BannerAdapter()
+    val mealAdapter = MealAdapter {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCategory()
         viewModel.getBanners()
-      viewModel.getMeat("Beef")
-        with(binding){
-            binding.rcBanner.adapter=bannerAdapter
-            binding.rcCategory.adapter=categoryAdapter
-            binding.rcMeal.adapter=mealAdapter
+        viewModel.getMeat("Beef")
+        with(binding) {
+            binding.rcBanner.adapter = bannerAdapter
+            binding.rcCategory.adapter = categoryAdapter
+            binding.rcMeal.adapter = mealAdapter
         }
 
 
@@ -48,10 +48,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.mealModel.collect {
-                if (it.isNullOrEmpty()){
-                    binding.progressBar.visibility=View.VISIBLE
-                }else{
-                    binding.progressBar.visibility=View.GONE
+                if (it.isNullOrEmpty()) {
+                    binding.progressBar.visibility = View.VISIBLE
+                } else {
+                    binding.progressBar.visibility = View.GONE
                 }
                 mealAdapter.submitList(it)
             }

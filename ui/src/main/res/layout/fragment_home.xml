@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
     android:layout_height="match_parent"
+    android:background="@color/ffffff"
     tools:context=".HomeFragment">
 
     <com.prilepskiy.ui.toolbars.ToolbarStandard
         android:id="@+id/toolbarStandard2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:background="@color/ffffff"
         app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,13 +36,13 @@
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="@color/ffffff"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/_200dp"
 
                 app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
@@ -66,22 +64,20 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="43dp"
+                    android:layout_height="@dimen/_43dp"
                     app:layout_collapseMode="pin" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="150dp"
+                    android:layout_marginTop="@dimen/_150dp"
                     android:background="#FFFFFF"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_collapseMode="pin"
                     tools:itemCount="8"
                     tools:listitem="@layout/item_category" />
-
-
 
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -93,7 +89,7 @@
             android:id="@+id/rcMeal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20dp"
 
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -106,10 +102,10 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
-            android:layout_width="155dp"
-            android:elevation="3dp"
-            android:layout_height="155dp"
-            android:layout_margin="140dp" />
+            android:layout_width="@dimen/_155dp"
+            android:layout_height="@dimen/_155dp"
+            android:layout_margin="@dimen/_140dp"
+            android:elevation="@dimen/_3dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

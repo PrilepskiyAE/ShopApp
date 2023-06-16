@@ -4,20 +4,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="6dp"
-    android:layout_margin="4dp">
+    app:cardCornerRadius="@dimen/_1dp"
+    android:layout_margin="@dimen/_4dp">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="94dp"
-        android:layout_height="35dp"
+        android:layout_width="@dimen/_94dp"
+        android:layout_height="@dimen/_35dp"
         android:textAllCaps="false"
-        android:elevation="2dp"
+        android:elevation="@dimen/_2dp"
         android:ambientShadowAlpha="0.01"
         android:spotShadowAlpha="0.08"
-        android:background="#FFFFFF"
+        android:background="@color/ffffff"
         tools:text="Button"
-        android:textColor="#C3C4C9"
+        android:textColor="@color/c3c4c9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.prilepskiy.ui.databinding.ToolbarStandardBinding
 
-class ToolbarStandard@JvmOverloads constructor(
+class ToolbarStandard @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null, ): ConstraintLayout(context, attrs) {
+    attrs: AttributeSet? = null,
+) : ConstraintLayout(context, attrs) {
     private lateinit var binding: ToolbarStandardBinding
 
 
@@ -23,7 +24,7 @@ class ToolbarStandard@JvmOverloads constructor(
     }
 
     fun setTitleText(text: String) {
-        binding.ToolbarTitle.text=text
+        binding.ToolbarTitle.text = text
     }
 
 
