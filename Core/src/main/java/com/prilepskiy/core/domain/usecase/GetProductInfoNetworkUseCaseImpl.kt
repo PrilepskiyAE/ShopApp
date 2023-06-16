@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class GetProductInfoNetworkUseCaseImpl(private val repository: ProductRepository) :
     GetProductInfoNetworkUseCase {
-    override suspend fun invoke(id: String): ActionResult<List<MealInfoModel>> = withContext(
+    override suspend operator fun invoke(id: String): ActionResult<List<MealInfoModel>> = withContext(
         Dispatchers.IO
     ) {
         val apiData = repository.getProductInfoNetwork(id)

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class GetProductCashUseCaseImpl(private val repository: ProductRepository) : GetProductCashUseCase {
-    override suspend fun invoke(categoryName: String): Flow<List<MealModel>> =
+    override suspend operator fun invoke(categoryName: String): Flow<List<MealModel>> =
         withContext(Dispatchers.IO) {
             repository.getProductCash(categoryName).map { list ->
                 val result: MutableList<MealModel> = mutableListOf()

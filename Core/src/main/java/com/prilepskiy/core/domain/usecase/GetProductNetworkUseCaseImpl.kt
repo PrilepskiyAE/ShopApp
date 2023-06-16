@@ -8,27 +8,30 @@ import com.prilepskiy.core.utils.ActionResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class GetProductNetworkUseCaseImpl(private val repository: ProductRepository) :
+class GetProductNetworkUseCaseImpl(
+    private val repository: ProductRepository
+    ) :
     GetProductNetworkUseCase {
-    override suspend fun invoke(categoryName: String): ActionResult<List<MealModel>> =
+    override suspend operator fun invoke(categoryName: String): ActionResult<List<MealModel>> =
         withContext(
             Dispatchers.IO
-        ) {
-            val apiData = repository.getProductNetwork(categoryName)
+        )
+        {
+            //val apiData = repository.getProductNetwork(categoryName)
 
-            val result = mutableListOf<MealModel>()
-            return@withContext when (apiData) {
-                is ActionResult.Success -> {
-                    apiData.data.meals
-                        .onEach {
-                        result.add(MealModel.from(it,categoryName))
-                    }
-                    ActionResult.Success(result)
-                }
-
-                is ActionResult.Error -> {
-                    ActionResult.Error(apiData.errors)
-                }
-            }
+          val result = mutableListOf<MealModel>()
+//            return@withContext when (apiData) {
+//                is ActionResult.Success -> {
+//                    apiData.data.meals
+//                        .onEach {
+//                        result.add(MealModel.from(it,categoryName))
+//                    }
+                   ActionResult.Success(result)
+//                }
+//
+//                is ActionResult.Error -> {
+//                    ActionResult.Error(apiData.errors)
+//                }
+//            }
         }
 }

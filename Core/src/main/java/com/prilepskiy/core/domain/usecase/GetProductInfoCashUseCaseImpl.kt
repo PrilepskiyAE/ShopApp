@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 
 class GetProductInfoCashUseCaseImpl(private val repository: ProductRepository) :
     GetProductInfoCashUseCase {
-    override suspend fun invoke(id: String): Flow<List<MealInfoModel>> =
+    override suspend operator fun invoke(id: String): Flow<List<MealInfoModel>> =
         withContext(Dispatchers.IO) {
             repository.getProductInfoCash(id).map { list ->
                 val result: MutableList<MealInfoModel> = mutableListOf()

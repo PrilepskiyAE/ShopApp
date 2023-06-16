@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class GetCategoryCashUseCaseImpl(private val repository: CategoryRepository) :
     GetCategoryCashUseCase {
-    override suspend fun invoke(): Flow<List<CategoryModel>> = withContext(Dispatchers.IO) {
+    override suspend operator fun invoke(): Flow<List<CategoryModel>> = withContext(Dispatchers.IO) {
         repository.getCategoryCash().map { list ->
             val result: MutableList<CategoryModel> = mutableListOf()
             list.forEach { item ->

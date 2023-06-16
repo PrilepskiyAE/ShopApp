@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 
 class GetCategoryNetworkUseCaseImpl(private val repository: CategoryRepository) :
     GetCategoryNetworkUseCase {
-    override suspend fun invoke(): ActionResult<List<CategoryModel>> = withContext(Dispatchers.IO) {
+    override suspend operator fun invoke(): ActionResult<List<CategoryModel>> = withContext(Dispatchers.IO) {
         val apiData = repository.getCategoryNetwork()
         val result = mutableListOf<CategoryModel>()
         return@withContext when (apiData) {

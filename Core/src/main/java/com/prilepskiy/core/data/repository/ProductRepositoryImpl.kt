@@ -13,9 +13,12 @@ import com.prilepskiy.core.utils.analyzeResponse
 import com.prilepskiy.core.utils.makeApiCall
 import kotlinx.coroutines.flow.Flow
 
-class ProductRepositoryImpl(private val api: ProductApiService, private val db: MainDatabase) :
+class ProductRepositoryImpl(
+    private val api: ProductApiService,
+    private val db: MainDatabase
+    ) :
     ProductRepository {
-    override suspend fun getProductNetwork(categoryName: String): ActionResult<ProductResponse> {
+        override suspend fun getProductNetwork(categoryName: String): ActionResult<ProductResponse> {
         val apiData = makeApiCall {
             analyzeResponse(api.getProductInfoByCategory(categoryName))
         }
@@ -58,4 +61,5 @@ class ProductRepositoryImpl(private val api: ProductApiService, private val db: 
 
     override suspend fun getProductInfoCash(id: String): Flow<List<MealInfoEntity>> =
         db.mealInfoDao.getMealInfo(id.toInt())
+
 }

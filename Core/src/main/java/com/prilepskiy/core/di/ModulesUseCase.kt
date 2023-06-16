@@ -20,5 +20,7 @@ val useCaseModule = module {
     factory<GetProductCashUseCase> { GetProductCashUseCaseImpl(get()) }
     factory<GetProductInfoCashUseCase> { GetProductInfoCashUseCaseImpl(get()) }
     factory<GetProductInfoNetworkUseCase> { GetProductInfoNetworkUseCaseImpl(get()) }
-    factory<GetProductNetworkUseCase> { GetProductNetworkUseCaseImpl(get()) }
+    factory<GetProductNetworkUseCase> { GetProductNetworkUseCaseImpl(
+        get()
+    ) }
 }
